@@ -1,0 +1,50 @@
+                                                                                              ### TASK 18 ###
+
+---------Launch EC2 instance ,allow all traffic and setup apache server 
+
+---------Create database - MySQL version 5.7.31 and give Public Access
+
+---------Allow your instance IP in Security group of Database
+
+
+                                                         #### Perform following Operations in your instance ####
+
+---------Wordpress requirements:
+               	1)PHP version 7.4 or greater
+	2)MySQL version 5.6 OR MariaDB version 10.1 or greater.
+
+---------For PHP 7.4 
+
+	1)amazon-linux-extras install epel
+	2)amazon-linux-extras install php7.4
+
+---------Installing wordpress and starting httpd service	
+	1)wget https://wordpress.org/latest.tar.gz
+	2)tar xf latest.tar.gz  -C /var/www/html
+	3) Make owner as apache
+	    chown -R apache:apache /var/www/html/wordpress
+	4)Disable Selinux 
+	    setenforce 0
+
+---------Installing mysql and login to database
+	1)yum install mysql
+
+	2)Login to database
+	mysql -h wordpress-db.c9gn1pvwcy9j.ap-south-1.rds.amazonaws.com -u admin -p
+
+	show databses;
+	create database mydb;
+	exit;
+
+--------- Restart httpd service
+	1)systemctl restart httpd
+	2)systemctl status httpd
+
+
+---------Wordpress database information
+	1) Give name of DB created. 
+	2) Give master user name of DB 
+	3)Give Password 
+	4)Give endpoint URL of RDS Database 
+
+	
